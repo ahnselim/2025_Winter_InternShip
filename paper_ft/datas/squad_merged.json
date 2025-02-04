@@ -1,0 +1,138 @@
+{
+    "train": [
+        {
+            "title": "\nEfficient Human Activity Recognition Using Hyperdimensional Computing",
+            "context": "Human activity recognition is a key task of many Internet of Things (IoT) applications to understand underlying contexts and react with the environments.\n This paper presents an alternative approach to efficiently support activity recognition tasks using brain-inspired hyperdimensional (HD) computing.\n The proposed method achieves up to 486x speedup in model training compared to state-of-the-art neural networks and improves inference performance by 7x on a low-power ARM processor.\n",
+            "question": "What is the main goal of the paper?",
+            "answer": "To develop an efficient method for human activity recognition using hyperdimensional computing."
+        },
+        {
+            "title": "\nEfficient Human Activity Recognition Using Hyperdimensional Computing",
+            "context": "Human activity recognition is a key task of many Internet of Things (IoT) applications to understand underlying contexts and react with the environments.\n This paper presents an alternative approach to efficiently support activity recognition tasks using brain-inspired hyperdimensional (HD) computing.\n The proposed method achieves up to 486x speedup in model training compared to state-of-the-art neural networks and improves inference performance by 7x on a low-power ARM processor.\n",
+            "question": "How does HD computing improve efficiency?",
+            "answer": "HD computing enables fast training and inference while being robust to noisy sensor data."
+        },
+        {
+            "title": "\nA Framework for Collaborative Learning in Secure High-Dimensional Space",
+            "context": "This paper proposes a novel framework, SecureHD, which provides a secure learning solution based on high-dimensional (HD) computing.\n SecureHD enables encoding data into high-dimensional vectors to protect privacy while allowing efficient machine learning on cloud systems. \nThe method achieves a speedup of 145.6× in encoding and 6.8× in decoding compared to traditional encryption methods, while maintaining 95% classification accuracy in various tasks.\n",
+            "question": "What is SecureHD?",
+            "answer": "A framework for secure collaborative learning using high-dimensional computing."
+        },
+        {
+            "title": "\nA Framework for Collaborative Learning in Secure High-Dimensional Space",
+            "context": "This paper proposes a novel framework, SecureHD, which provides a secure learning solution based on high-dimensional (HD) computing.\n SecureHD enables encoding data into high-dimensional vectors to protect privacy while allowing efficient machine learning on cloud systems. \nThe method achieves a speedup of 145.6× in encoding and 6.8× in decoding compared to traditional encryption methods, while maintaining 95% classification accuracy in various tasks.\n",
+            "question": "How does SecureHD protect data privacy?",
+            "answer": "It encodes data into high-dimensional vectors, preventing raw data exposure during computation."
+        },
+        {
+            "title": "\nDUAL: Acceleration of Clustering Algorithms using Digital-based Processing In-Memory",
+            "context": "DUAL is a novel processing-in-memory (PIM) architecture designed to accelerate clustering algorithms by eliminating unnecessary data movement.\n The approach maps data into high-dimensional space and performs computations efficiently within memory arrays, achieving significant speedup and energy savings.\n Evaluations show that DUAL provides a 58.8× speedup and a 251.2× energy efficiency improvement compared to GPU-based clustering methods.\n",
+            "question": "What is DUAL?",
+            "answer": "A processing-in-memory approach for accelerating clustering algorithms."
+        },
+        {
+            "title": "\nDUAL: Acceleration of Clustering Algorithms using Digital-based Processing In-Memory",
+            "context": "DUAL is a novel processing-in-memory (PIM) architecture designed to accelerate clustering algorithms by eliminating unnecessary data movement.\n The approach maps data into high-dimensional space and performs computations efficiently within memory arrays, achieving significant speedup and energy savings.\n Evaluations show that DUAL provides a 58.8× speedup and a 251.2× energy efficiency improvement compared to GPU-based clustering methods.\n",
+            "question": "What is the key benefit of DUAL?",
+            "answer": "It eliminates data movement overhead and speeds up clustering tasks by performing computations directly in memory."
+        },
+        {
+            "title": "\nGenieHD: Efficient DNA Pattern Matching Accelerator Using Hyperdimensional Computing",
+            "context": "GenieHD is a hardware-software co-design that accelerates DNA pattern matching using hyperdimensional computing.\n The system transforms sequential DNA pattern matching tasks into highly parallelized operations, significantly reducing computation time and energy consumption.\n GenieHD achieves up to 44.4× speedup and 54.1× higher energy efficiency compared to state-of-the-art FPGA-based designs.\n",
+            "question": "What is GenieHD?",
+            "answer": "A DNA pattern matching accelerator based on hyperdimensional computing."
+        },
+        {
+            "title": "\nGenieHD: Efficient DNA Pattern Matching Accelerator Using Hyperdimensional Computing",
+            "context": "GenieHD is a hardware-software co-design that accelerates DNA pattern matching using hyperdimensional computing.\n The system transforms sequential DNA pattern matching tasks into highly parallelized operations, significantly reducing computation time and energy consumption.\n GenieHD achieves up to 44.4× speedup and 54.1× higher energy efficiency compared to state-of-the-art FPGA-based designs.\n",
+            "question": "How does GenieHD improve DNA pattern matching?",
+            "answer": "It encodes DNA sequences into hypervectors, enabling highly parallel and efficient matching operations."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the key findings regarding energy consumption?",
+            "answer": "The proposed approach reduces energy consumption by up to 35% without significant loss in accuracy."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the main goal of the paper?",
+            "answer": "The main goal is to develop an efficient sparse processing method for smart home applications by combining hierarchy-aware neural networks with variational dropout."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What hardware platforms were used for testing?",
+            "answer": "Raspberry Pi Zero, Particle Photon, and Arduino UNO."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "How does the proposed approach address these drawbacks?",
+            "answer": "By distributing inference computations across a hierarchy of edge devices and using sparse models to reduce computational overhead."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the potential drawbacks of the proposed approach?",
+            "answer": "Sensor malfunctions or missing data could negatively impact the final predictions."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the primary use case evaluated in the paper?",
+            "answer": "Human Activity Recognition (HAR) in a real-world smart home deployment."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the key method used to induce sparsity in neural networks?",
+            "answer": "Variational dropout is used to reduce the number of non-zero parameters, making the model more efficient."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the three key metrics used for evaluation?",
+            "answer": "Inference accuracy, energy usage, and model sparsity."
+        }
+    ],
+    "validation": [
+        {
+            "title": "\nEfficient Human Activity Recognition Using Hyperdimensional Computing",
+            "context": "Human activity recognition is a key task of many Internet of Things (IoT) applications to understand underlying contexts and react with the environments.\n This paper presents an alternative approach to efficiently support activity recognition tasks using brain-inspired hyperdimensional (HD) computing.\n The proposed method achieves up to 486x speedup in model training compared to state-of-the-art neural networks and improves inference performance by 7x on a low-power ARM processor.\n",
+            "question": "What is the main goal of the paper?",
+            "answer": "To develop an efficient method for human activity recognition using hyperdimensional computing."
+        },
+        {
+            "title": "\nA Framework for Collaborative Learning in Secure High-Dimensional Space",
+            "context": "This paper proposes a novel framework, SecureHD, which provides a secure learning solution based on high-dimensional (HD) computing.\n SecureHD enables encoding data into high-dimensional vectors to protect privacy while allowing efficient machine learning on cloud systems. \nThe method achieves a speedup of 145.6× in encoding and 6.8× in decoding compared to traditional encryption methods, while maintaining 95% classification accuracy in various tasks.\n",
+            "question": "What is SecureHD?",
+            "answer": "A framework for secure collaborative learning using high-dimensional computing."
+        },
+        {
+            "title": "\nDUAL: Acceleration of Clustering Algorithms using Digital-based Processing In-Memory",
+            "context": "DUAL is a novel processing-in-memory (PIM) architecture designed to accelerate clustering algorithms by eliminating unnecessary data movement.\n The approach maps data into high-dimensional space and performs computations efficiently within memory arrays, achieving significant speedup and energy savings.\n Evaluations show that DUAL provides a 58.8× speedup and a 251.2× energy efficiency improvement compared to GPU-based clustering methods.\n",
+            "question": "What is DUAL?",
+            "answer": "A processing-in-memory approach for accelerating clustering algorithms."
+        },
+        {
+            "title": "\nGenieHD: Efficient DNA Pattern Matching Accelerator Using Hyperdimensional Computing",
+            "context": "GenieHD is a hardware-software co-design that accelerates DNA pattern matching using hyperdimensional computing.\n The system transforms sequential DNA pattern matching tasks into highly parallelized operations, significantly reducing computation time and energy consumption.\n GenieHD achieves up to 44.4× speedup and 54.1× higher energy efficiency compared to state-of-the-art FPGA-based designs.\n",
+            "question": "What is GenieHD?",
+            "answer": "A DNA pattern matching accelerator based on hyperdimensional computing."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "How does the hierarchical approach improve efficiency?",
+            "answer": "It reduces communication overhead by performing partial inference locally before sending data to higher-tier devices."
+        },
+        {
+            "title": "\nSmart Home QA",
+            "context": "This paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the major drawbacks of the traditional monolithic approach in smart home applications?",
+            "answer": "High energy consumption, increased network latency, and privacy concerns due to raw data transmission to the cloud."
+        }
+    ]
+}

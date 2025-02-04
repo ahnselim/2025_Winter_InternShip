@@ -1,0 +1,3328 @@
+{
+    "paragraphs": [
+        {
+            "id": 1,
+            "text": "E\u02d9icient Sparse Pro cessing in Smart Home Applications"
+        },
+        {
+            "id": 2,
+            "text": "Rishikanth Chandrasekaran, Yunhui Guo, Anthony Thomas, Massimiliano Menarini, Michael H"
+        },
+        {
+            "id": 3,
+            "text": "Ostertag, Yese ong Kim, Tajana Rosing"
+        },
+        {
+            "id": 4,
+            "text": "University of California San Diego"
+        },
+        {
+            "id": 5,
+            "text": "{r3chandr, yug185, ahthomas, mmenarini, mosterta, yek048, tajana}@ucsd.e du"
+        },
+        {
+            "id": 6,
+            "text": "ABSTRACT"
+        },
+        {
+            "id": 7,
+            "text": "Inrecentyears,smarthometechnologyhasbecomeprevalantand"
+        },
+        {
+            "id": 8,
+            "text": "importantforvariousapplications. Atypicalsmarthomesystem"
+        },
+        {
+            "id": 9,
+            "text": "consistsof sensingnodes sendingraw datato acloudserverwhich"
+        },
+        {
+            "id": 10,
+            "text": "performsinferenceusingaMachineLearning(ML)modeltrained"
+        },
+        {
+            "id": 11,
+            "text": "o\u02dcine.Thisapproachsu\u02dbersfromhighenergyandcommunica-"
+        },
+        {
+            "id": 12,
+            "text": "tioncostsandraisesprivacyconcerns.Toaddresstheseissues"
+        },
+        {
+            "id": 13,
+            "text": "researchersprop osedhierarchyawaremodelswhichdistributes"
+        },
+        {
+            "id": 14,
+            "text": "the inferencecomputations acrossthe sensor networkwith each"
+        },
+        {
+            "id": 15,
+            "text": "nodeprocessingapartoftheinference.Whilehierarchicalmodels"
+        },
+        {
+            "id": 16,
+            "text": "reducetheseoverheads signi\u02d9cantlytheyarecomputationallyin-"
+        },
+        {
+            "id": 17,
+            "text": "tensivetorunonresourceconstraineddeviceswhicharetypicalto"
+        },
+        {
+            "id": 18,
+            "text": "smarthomedeployments.Inthisworkwepresentanovelapproach"
+        },
+        {
+            "id": 19,
+            "text": "combiningHierarchyawareNeuralNetworks(HNN)withvaria-"
+        },
+        {
+            "id": 20,
+            "text": "tionaldropouttechniquetogeneratesparsemodelswhichhavelow"
+        },
+        {
+            "id": 21,
+            "text": "computationaloverhead allowingthemto berunon edgedevices"
+        },
+        {
+            "id": 22,
+            "text": "withlimited resources. Weevaluateour approachusinganexten-"
+        },
+        {
+            "id": 23,
+            "text": "sivereal-worldsmarthomedeploymentconsistingofseveraledge"
+        },
+        {
+            "id": 24,
+            "text": "devices.Measurementsacrossdi\u02dberentdevicesshowthatwithout"
+        },
+        {
+            "id": 25,
+            "text": "signi\u02d9cant loss of accuracy, energy consumption can be reduced"
+        },
+        {
+            "id": 26,
+            "text": "by up to 35% over state-of-the-art."
+        },
+        {
+            "id": 27,
+            "text": "CCS CONCEPTS"
+        },
+        {
+            "id": 28,
+            "text": "\u2039"
+        },
+        {
+            "id": 29,
+            "text": "Computing methodologies"
+        },
+        {
+            "id": 30,
+            "text": "\u02c7"
+        },
+        {
+            "id": 31,
+            "text": "Distributedcomputing method-"
+        },
+        {
+            "id": 32,
+            "text": "ologies"
+        },
+        {
+            "id": 33,
+            "text": ";"
+        },
+        {
+            "id": 34,
+            "text": "\u2039"
+        },
+        {
+            "id": 35,
+            "text": "Computer systems organization"
+        },
+        {
+            "id": 36,
+            "text": "\u02c7"
+        },
+        {
+            "id": 37,
+            "text": "Embeddedsystems"
+        },
+        {
+            "id": 38,
+            "text": ";"
+        },
+        {
+            "id": 39,
+            "text": "\u2039"
+        },
+        {
+            "id": 40,
+            "text": "Mathematics of computing"
+        },
+        {
+            "id": 41,
+            "text": "\u02c7"
+        },
+        {
+            "id": 42,
+            "text": "Information theor y."
+        },
+        {
+            "id": 43,
+            "text": "ACM Reference Format:"
+        },
+        {
+            "id": 44,
+            "text": "RishikanthChandrasekaran,YunhuiGuo,AnthonyThomas,Massimiliano"
+        },
+        {
+            "id": 45,
+            "text": "Menarini,MichaelHOstertag,YeseongKim,TajanaRosing.2019.E\u02ddcient"
+        },
+        {
+            "id": 46,
+            "text": "SparseProcessinginSmartHomeApplications.In"
+        },
+        {
+            "id": 47,
+            "text": "1stWorkshoponMachine"
+        },
+        {
+            "id": 48,
+            "text": "LearningonEdgeinSensorSystems(SenSys-ML2019),Novemb er10,2019,"
+        },
+        {
+            "id": 49,
+            "text": "NewYork,NY,USA."
+        },
+        {
+            "id": 50,
+            "text": "ACM,NewYork,NY,USA,6pages.https://doi.org/10."
+        },
+        {
+            "id": 51,
+            "text": "1145/3362743.3362963"
+        },
+        {
+            "id": 52,
+            "text": "1 IN TRODUCTION"
+        },
+        {
+            "id": 53,
+            "text": "Inrecentyears,smarthometechnologyhasevolvedfromsimple"
+        },
+        {
+            "id": 54,
+            "text": "functionalitysuchasautomateddevicecontroltomoresophisti-"
+        },
+        {
+            "id": 55,
+            "text": "catedapplicationslike activityrecognition,surveillance,smartgrid"
+        },
+        {
+            "id": 56,
+            "text": "controlsandmanymore.Theseapplicationsentirelyrelyoncloud"
+        },
+        {
+            "id": 57,
+            "text": "ser verstoperformMachineLearning(ML)ondatageneratedby"
+        },
+        {
+            "id": 58,
+            "text": "Permissiontomakedigitalorhardcopiesofallorpartofthisworkforpersonalor"
+        },
+        {
+            "id": 59,
+            "text": "classroomuseisgrantedwithoutfeeprovidedthatcopiesarenotmadeordistributed"
+        },
+        {
+            "id": 60,
+            "text": "forpro\u02d9torcommercialadvantageandthatcopiesbearthisnoticeandthefullcitation"
+        },
+        {
+            "id": 61,
+            "text": "on the\u02d9rst page. Copyrightsfor componentsof thiswork ownedby othersthan ACM"
+        },
+        {
+            "id": 62,
+            "text": "mustbehonored.Abstractingwithcreditispermitted.Tocopyotherwise,orrepublish,"
+        },
+        {
+            "id": 63,
+            "text": "topostonserversortoredistributetolists,requirespriorspeci\u02d9cpermissionand/ora"
+        },
+        {
+            "id": 64,
+            "text": "fee.Requestpermissionsfrompermissions@acm.org."
+        },
+        {
+            "id": 65,
+            "text": "SenSys-ML 2019, Novemb er 10, 2019, NewYork,NY,USA"
+        },
+        {
+            "id": 66,
+            "text": "\u00a9"
+        },
+        {
+            "id": 67,
+            "text": "2019 Asso ciation for Computing Machiner y."
+        },
+        {
+            "id": 68,
+            "text": "ACM ISBN 978-1-4503-7011-0/19/11...$15.00"
+        },
+        {
+            "id": 69,
+            "text": "https://doi.org/10.1145/3362743.3362963"
+        },
+        {
+            "id": 70,
+            "text": "smart homesensors. A typicalsmart homearchitecture comprises"
+        },
+        {
+            "id": 71,
+            "text": "of ahierarchyof sensors,actuators, hubs/gatewayswhere sensors"
+        },
+        {
+            "id": 72,
+            "text": "transmitrawdatatohubs whichaggregatesthereceiveddataand"
+        },
+        {
+            "id": 73,
+            "text": "sendsittothecloud.Thecloudperformsinferenceusingapre-"
+        },
+        {
+            "id": 74,
+            "text": "trainedMLmodeltopredictaquantityofinterestspeci\u02d9ctothe"
+        },
+        {
+            "id": 75,
+            "text": "application. The Samsung Smart Things ecosystem["
+        },
+        {
+            "id": 76,
+            "text": "11"
+        },
+        {
+            "id": 77,
+            "text": "] is one such"
+        },
+        {
+            "id": 78,
+            "text": "commercially available example of this architecture."
+        },
+        {
+            "id": 79,
+            "text": "Thismonolithic approach hasseveraldisadvantages.First,the"
+        },
+        {
+            "id": 80,
+            "text": "constant communication ofdata is energy intensiveand reduces"
+        },
+        {
+            "id": 81,
+            "text": "the life of batter y operated sensor nodes. Second, large volumes of"
+        },
+        {
+            "id": 82,
+            "text": "data generated bysome sensors eg. cameras, might saturate and"
+        },
+        {
+            "id": 83,
+            "text": "slowdownthenetwork.Thisexcessivecommunicationcouldde-"
+        },
+        {
+            "id": 84,
+            "text": "mandprovisioningofadditionalexpensiveresources.Lastly,smart"
+        },
+        {
+            "id": 85,
+            "text": "homesensorsrecordsensitivedatacapturingvarioususeractivities"
+        },
+        {
+            "id": 86,
+            "text": "within the home. Sending this raw personal data to athird party"
+        },
+        {
+            "id": 87,
+            "text": "vendor raises serious privacy concerns."
+        },
+        {
+            "id": 88,
+            "text": "Toovercometheseissuesrecentwork["
+        },
+        {
+            "id": 89,
+            "text": "2"
+        },
+        {
+            "id": 90,
+            "text": "]proposedahierarchi-"
+        },
+        {
+            "id": 91,
+            "text": "calapproach whichpushesML inferencecomputationsfrom the"
+        },
+        {
+            "id": 92,
+            "text": "cloudtoedgedevices.Inthisapproach,edgedevicesrunpartial"
+        },
+        {
+            "id": 93,
+            "text": "ML inference on thesensor values, transforming them into alower"
+        },
+        {
+            "id": 94,
+            "text": "dimensionalrepresentation.Thesepartialvaluesareaggregated"
+        },
+        {
+            "id": 95,
+            "text": "bythecloud(atthetopofthehierarchy)wherethe\u02d9nalinference"
+        },
+        {
+            "id": 96,
+            "text": "resultiscomputed.Theauthorsdemonstratethatthisapproach"
+        },
+        {
+            "id": 97,
+            "text": "reducesenergyconsumptionby63%andnetworklatency by68%."
+        },
+        {
+            "id": 98,
+            "text": "However,theyconsiderrelativelyhighpowerededgedevices(Rasp-"
+        },
+        {
+            "id": 99,
+            "text": "berr yPi3["
+        },
+        {
+            "id": 100,
+            "text": "4"
+        },
+        {
+            "id": 101,
+            "text": "])anddonotaddressmemor yorcomputationcostsfor"
+        },
+        {
+            "id": 102,
+            "text": "runningonresourceconstraineddevices.Inordertoleveragethe"
+        },
+        {
+            "id": 103,
+            "text": "advantagesofthisapproach,thecomputationsneedtobeoptimized"
+        },
+        {
+            "id": 104,
+            "text": "forresourceconstrainededgedevicestypicaltosmarthomeappli-"
+        },
+        {
+            "id": 105,
+            "text": "cations.Thisischallengingasthecurrentdominantapproachis"
+        },
+        {
+            "id": 106,
+            "text": "touse NeuralNetworks (NN)whichare memor yandcomputation"
+        },
+        {
+            "id": 107,
+            "text": "heav y.Stateoftheartneuralnetworksforimageclassi\u02d9cationoften"
+        },
+        {
+            "id": 108,
+            "text": "havemillionsofparametersandrequire100-500MBofRAMfor"
+        },
+        {
+            "id": 109,
+            "text": "storing the weightsalone and more to perform inference computa-"
+        },
+        {
+            "id": 110,
+            "text": "tions.However,amicro-controlleronatypicaledgedeviceoften"
+        },
+        {
+            "id": 111,
+            "text": "has 128KB of RAM or less."
+        },
+        {
+            "id": 112,
+            "text": "Inthispaper,wepresentanovelimplementationcombining"
+        },
+        {
+            "id": 113,
+            "text": "hierarchy awareinference with variational dropout whichcan be"
+        },
+        {
+            "id": 114,
+            "text": "runon resource constrainedIoT edgedevicesfor smarthomeappli-"
+        },
+        {
+            "id": 115,
+            "text": "cations. We use HumanActivity Recognition (HAR) asa use case"
+        },
+        {
+            "id": 116,
+            "text": "toevaluateourapproach.Therestofthepaperwilldiscussour"
+        },
+        {
+            "id": 117,
+            "text": "approachinthecontextofHAR.Whileourevaluationisspeci\u02d9cto"
+        },
+        {
+            "id": 118,
+            "text": "HAR,the principlesof theapproach canbe appliedto anysuchap-"
+        },
+        {
+            "id": 119,
+            "text": "plication. We evaluate ourimplementation using a comprehensive"
+        },
+        {
+            "id": 120,
+            "text": "real-worldsmarthomedeployment.Weshowthatourapproach"
+        },
+        {
+            "id": 121,
+            "text": "reducesenergyby35%inadditiontothereductionsachievedby"
+        },
+        {
+            "id": 122,
+            "text": "current hierarchical methods[2]."
+        },
+        {
+            "id": 123,
+            "text": "19"
+        },
+        {
+            "id": 124,
+            "text": "SenSys-ML 2019, November 10, 2019, New York, NY, USA"
+        },
+        {
+            "id": 125,
+            "text": "Chandrasekaran et al."
+        },
+        {
+            "id": 126,
+            "text": "2 RELATEDWORK"
+        },
+        {
+            "id": 127,
+            "text": "HumanActivityRecognition(HAR)insmarthomeshasb eenwell"
+        },
+        {
+            "id": 128,
+            "text": "studiedinrecentyearsbythecommunity["
+        },
+        {
+            "id": 129,
+            "text": "12"
+        },
+        {
+            "id": 130,
+            "text": "],["
+        },
+        {
+            "id": 131,
+            "text": "14"
+        },
+        {
+            "id": 132,
+            "text": "],["
+        },
+        {
+            "id": 133,
+            "text": "10"
+        },
+        {
+            "id": 134,
+            "text": "].However,"
+        },
+        {
+            "id": 135,
+            "text": "most worksfocus only on improving accuracyof activity recogni-"
+        },
+        {
+            "id": 136,
+            "text": "tionandusethetraditionalmonolithicapproachwhichasexplained"
+        },
+        {
+            "id": 137,
+            "text": "earlierhas disadvantages.Our workaddresses allthese issuesand"
+        },
+        {
+            "id": 138,
+            "text": "weconductexperimentsusing anextensivereal-worlddeployment"
+        },
+        {
+            "id": 139,
+            "text": "with di\u02dberent subjects for evaluation."
+        },
+        {
+            "id": 140,
+            "text": "Priorworkhasalsoexploredhierarchyawarelearningbypush-"
+        },
+        {
+            "id": 141,
+            "text": "ing down inference computations across the IoT network.["
+        },
+        {
+            "id": 142,
+            "text": "2"
+        },
+        {
+            "id": 143,
+            "text": "], ["
+        },
+        {
+            "id": 144,
+            "text": "13"
+        },
+        {
+            "id": 145,
+            "text": "]"
+        },
+        {
+            "id": 146,
+            "text": "implementhierarchyawaremachinelearningfordistributinginfer-"
+        },
+        {
+            "id": 147,
+            "text": "encecomputationson edgedevices.Howevertheyevaluatetheir"
+        },
+        {
+            "id": 148,
+            "text": "systemsonrelativelyhighpowereddeviceswhicharen'trepresen-"
+        },
+        {
+            "id": 149,
+            "text": "tative of typical edge devices which have fewer resources."
+        },
+        {
+            "id": 150,
+            "text": "Methods to compressor reduce models have alsobeenexplored"
+        },
+        {
+            "id": 151,
+            "text": "bythecommunity.The\u0010variationaldropout\u0011methodproposedin"
+        },
+        {
+            "id": 152,
+            "text": "["
+        },
+        {
+            "id": 153,
+            "text": "7"
+        },
+        {
+            "id": 154,
+            "text": "] has been shown theoretically to enforce better regularization,"
+        },
+        {
+            "id": 155,
+            "text": "and empiricallyto leadto substantialreductions inthe number of"
+        },
+        {
+            "id": 156,
+            "text": "non-zeromo delparameters - upto"
+        },
+        {
+            "id": 157,
+            "text": "280"
+        },
+        {
+            "id": 158,
+            "text": "x asreported in ["
+        },
+        {
+            "id": 159,
+            "text": "7"
+        },
+        {
+            "id": 160,
+            "text": "]. Thus,"
+        },
+        {
+            "id": 161,
+            "text": "becausevariationaldropoutisabletosimultaneouslyregularize"
+        },
+        {
+            "id": 162,
+            "text": "andinducesparsity,weconsiderthisapromisingmethodforim-"
+        },
+        {
+            "id": 163,
+            "text": "plementinge\u02ddcientdeeplearningmodelsonresourceconstrained"
+        },
+        {
+            "id": 164,
+            "text": "edge devices."
+        },
+        {
+            "id": 165,
+            "text": "3 HIERARCHICAL TRAINING"
+        },
+        {
+            "id": 166,
+            "text": "METHODOLOGY"
+        },
+        {
+            "id": 167,
+            "text": "Wenowdescrib eourhierarchyawaremetho dologyindetail.We"
+        },
+        {
+            "id": 168,
+            "text": "considera SmartHomedeploymentconsistingof"
+        },
+        {
+            "id": 169,
+            "text": "s"
+        },
+        {
+            "id": 170,
+            "text": "sensingdevices"
+        },
+        {
+            "id": 171,
+            "text": "gatheringfeatures"
+        },
+        {
+            "id": 172,
+            "text": "x"
+        },
+        {
+            "id": 173,
+            "text": "="
+        },
+        {
+            "id": 174,
+            "text": "\u00b9"
+        },
+        {
+            "id": 175,
+            "text": "x"
+        },
+        {
+            "id": 176,
+            "text": "1"
+        },
+        {
+            "id": 177,
+            "text": "; : : :;"
+        },
+        {
+            "id": 178,
+            "text": "x"
+        },
+        {
+            "id": 179,
+            "text": "s"
+        },
+        {
+            "id": 180,
+            "text": "\u00ba"
+        },
+        {
+            "id": 181,
+            "text": ".Forsimplicityofnotation, we"
+        },
+        {
+            "id": 182,
+            "text": "assumeeachsensorgathersasinglefeature,thusthereisa1:1"
+        },
+        {
+            "id": 183,
+            "text": "correspondencebetweensensors"
+        },
+        {
+            "id": 184,
+            "text": "s"
+        },
+        {
+            "id": 185,
+            "text": "i"
+        },
+        {
+            "id": 186,
+            "text": "andfeatures"
+        },
+        {
+            "id": 187,
+            "text": "x"
+        },
+        {
+            "id": 188,
+            "text": "i"
+        },
+        {
+            "id": 189,
+            "text": ".Eachsensor"
+        },
+        {
+            "id": 190,
+            "text": "communicates with one or more of"
+        },
+        {
+            "id": 191,
+            "text": "m"
+        },
+        {
+            "id": 192,
+            "text": "di\u02dberent aggregator devices"
+        },
+        {
+            "id": 193,
+            "text": "E"
+        },
+        {
+            "id": 194,
+            "text": "i"
+        },
+        {
+            "id": 195,
+            "text": ".Notethateachaggregatordevicenecessarilyreceivesinputfrom"
+        },
+        {
+            "id": 196,
+            "text": "multiplesensors.Wedenoteby"
+        },
+        {
+            "id": 197,
+            "text": "x"
+        },
+        {
+            "id": 198,
+            "text": "i"
+        },
+        {
+            "id": 199,
+            "text": "\u02c6"
+        },
+        {
+            "id": 200,
+            "text": "x"
+        },
+        {
+            "id": 201,
+            "text": "thesubsetoffeatureswhich"
+        },
+        {
+            "id": 202,
+            "text": "arelocallyavailableonaggregator"
+        },
+        {
+            "id": 203,
+            "text": "E"
+        },
+        {
+            "id": 204,
+            "text": "i"
+        },
+        {
+            "id": 205,
+            "text": ".Eachaggregatorcomputes"
+        },
+        {
+            "id": 206,
+            "text": "afunctionofitsinputdataandemitsalowerdimensionalrepre-"
+        },
+        {
+            "id": 207,
+            "text": "sentation:"
+        },
+        {
+            "id": 208,
+            "text": "z"
+        },
+        {
+            "id": 209,
+            "text": "i"
+        },
+        {
+            "id": 210,
+            "text": "="
+        },
+        {
+            "id": 211,
+            "text": "g"
+        },
+        {
+            "id": 212,
+            "text": "i"
+        },
+        {
+            "id": 213,
+            "text": "\u00b9"
+        },
+        {
+            "id": 214,
+            "text": "x"
+        },
+        {
+            "id": 215,
+            "text": "i"
+        },
+        {
+            "id": 216,
+            "text": "\u00ba"
+        },
+        {
+            "id": 217,
+            "text": ".The resultingcompression factoris"
+        },
+        {
+            "id": 218,
+            "text": "j"
+        },
+        {
+            "id": 219,
+            "text": "x"
+        },
+        {
+            "id": 220,
+            "text": "i"
+        },
+        {
+            "id": 221,
+            "text": "j \u0161 j"
+        },
+        {
+            "id": 222,
+            "text": "z"
+        },
+        {
+            "id": 223,
+            "text": "i"
+        },
+        {
+            "id": 224,
+            "text": "j"
+        },
+        {
+            "id": 225,
+            "text": "."
+        },
+        {
+            "id": 226,
+            "text": "Inourcase,asproposedin["
+        },
+        {
+            "id": 227,
+            "text": "2"
+        },
+        {
+            "id": 228,
+            "text": "],"
+        },
+        {
+            "id": 229,
+            "text": "g"
+        },
+        {
+            "id": 230,
+            "text": "i"
+        },
+        {
+            "id": 231,
+            "text": "\u00b9"
+        },
+        {
+            "id": 232,
+            "text": "x"
+        },
+        {
+            "id": 233,
+            "text": "i"
+        },
+        {
+            "id": 234,
+            "text": "\u00ba"
+        },
+        {
+            "id": 235,
+            "text": "isanMLPde\u02d9nedoverthe"
+        },
+        {
+            "id": 236,
+            "text": "locallyavailabledata. Hereweconsiderathreetierhierarchy.The"
+        },
+        {
+            "id": 237,
+            "text": "outputofaggregatordevicesatthe\u02d9rsttier(i.e.thesensors)isused"
+        },
+        {
+            "id": 238,
+            "text": "asinputtoMLPsrunningintheaggregatordevicesatthesecond"
+        },
+        {
+            "id": 239,
+            "text": "tier.Moreformally,anaggregator"
+        },
+        {
+            "id": 240,
+            "text": "E"
+        },
+        {
+            "id": 241,
+            "text": "2"
+        },
+        {
+            "id": 242,
+            "text": "i"
+        },
+        {
+            "id": 243,
+            "text": "inthesecondtierwhichtakes"
+        },
+        {
+            "id": 244,
+            "text": "input from"
+        },
+        {
+            "id": 245,
+            "text": "E"
+        },
+        {
+            "id": 246,
+            "text": "1"
+        },
+        {
+            "id": 247,
+            "text": "j"
+        },
+        {
+            "id": 248,
+            "text": "; : : :;"
+        },
+        {
+            "id": 249,
+            "text": "E"
+        },
+        {
+            "id": 250,
+            "text": "1"
+        },
+        {
+            "id": 251,
+            "text": "k"
+        },
+        {
+            "id": 252,
+            "text": "in the \u02d9rst tier computes:"
+        },
+        {
+            "id": 253,
+            "text": "z"
+        },
+        {
+            "id": 254,
+            "text": "2"
+        },
+        {
+            "id": 255,
+            "text": "i"
+        },
+        {
+            "id": 256,
+            "text": "="
+        },
+        {
+            "id": 257,
+            "text": "g"
+        },
+        {
+            "id": 258,
+            "text": "2"
+        },
+        {
+            "id": 259,
+            "text": "i"
+        },
+        {
+            "id": 260,
+            "text": "\u00b9"
+        },
+        {
+            "id": 261,
+            "text": "z"
+        },
+        {
+            "id": 262,
+            "text": "1"
+        },
+        {
+            "id": 263,
+            "text": "j"
+        },
+        {
+            "id": 264,
+            "text": "; : : :;"
+        },
+        {
+            "id": 265,
+            "text": "z"
+        },
+        {
+            "id": 266,
+            "text": "1"
+        },
+        {
+            "id": 267,
+            "text": "k"
+        },
+        {
+            "id": 268,
+            "text": "\u00ba"
+        },
+        {
+            "id": 269,
+            "text": "(1)"
+        },
+        {
+            "id": 270,
+            "text": "="
+        },
+        {
+            "id": 271,
+            "text": "g"
+        },
+        {
+            "id": 272,
+            "text": "2"
+        },
+        {
+            "id": 273,
+            "text": "i"
+        },
+        {
+            "id": 274,
+            "text": "\u00b9"
+        },
+        {
+            "id": 275,
+            "text": "g"
+        },
+        {
+            "id": 276,
+            "text": "1"
+        },
+        {
+            "id": 277,
+            "text": "j"
+        },
+        {
+            "id": 278,
+            "text": "\u00b9"
+        },
+        {
+            "id": 279,
+            "text": "x"
+        },
+        {
+            "id": 280,
+            "text": "j"
+        },
+        {
+            "id": 281,
+            "text": "; : : :;"
+        },
+        {
+            "id": 282,
+            "text": "g"
+        },
+        {
+            "id": 283,
+            "text": "1"
+        },
+        {
+            "id": 284,
+            "text": "k"
+        },
+        {
+            "id": 285,
+            "text": "\u00b9"
+        },
+        {
+            "id": 286,
+            "text": "x"
+        },
+        {
+            "id": 287,
+            "text": "k"
+        },
+        {
+            "id": 288,
+            "text": "\u00ba"
+        },
+        {
+            "id": 289,
+            "text": "(2)"
+        },
+        {
+            "id": 290,
+            "text": "Thisprocessisrepeateduntilthe\u02d9nallayerinthecloud.Asdis-"
+        },
+        {
+            "id": 291,
+            "text": "cussedintheintroduction,wetrainthemodelo\u02dcineusingstandard"
+        },
+        {
+            "id": 292,
+            "text": "SGDandthencopytheweightscorrespondingtoeachlocalMLP"
+        },
+        {
+            "id": 293,
+            "text": "to the corresponding device during inference."
+        },
+        {
+            "id": 294,
+            "text": "Asdiscussedabove,apotential issueisthattheembe ddedde-"
+        },
+        {
+            "id": 295,
+            "text": "vicesactingasaggregatorsaretypicallyresourceconstrainedand"
+        },
+        {
+            "id": 296,
+            "text": "havelowpowerprocessors whichmaynotb eabletodeliver sat-"
+        },
+        {
+            "id": 297,
+            "text": "isfactor yperformanceevenwhenusingsmallerlocalMLPs.We"
+        },
+        {
+            "id": 298,
+            "text": "applythevariationaldropoutmethodof["
+        },
+        {
+            "id": 299,
+            "text": "7"
+        },
+        {
+            "id": 300,
+            "text": "]toinducesparsityin"
+        },
+        {
+            "id": 301,
+            "text": "Figure 1:Diagramofconnectivitybetweensensors.Green"
+        },
+        {
+            "id": 302,
+            "text": "and purple correspond to local aggregation units"
+        },
+        {
+            "id": 303,
+            "text": "Test Subject"
+        },
+        {
+            "id": 304,
+            "text": "1"
+        },
+        {
+            "id": 305,
+            "text": "2"
+        },
+        {
+            "id": 306,
+            "text": "3"
+        },
+        {
+            "id": 307,
+            "text": "4"
+        },
+        {
+            "id": 308,
+            "text": "Count"
+        },
+        {
+            "id": 309,
+            "text": "28"
+        },
+        {
+            "id": 310,
+            "text": ";"
+        },
+        {
+            "id": 311,
+            "text": "840"
+        },
+        {
+            "id": 312,
+            "text": "28"
+        },
+        {
+            "id": 313,
+            "text": ";"
+        },
+        {
+            "id": 314,
+            "text": "787"
+        },
+        {
+            "id": 315,
+            "text": "29"
+        },
+        {
+            "id": 316,
+            "text": ";"
+        },
+        {
+            "id": 317,
+            "text": "758"
+        },
+        {
+            "id": 318,
+            "text": "28"
+        },
+        {
+            "id": 319,
+            "text": ";"
+        },
+        {
+            "id": 320,
+            "text": "599"
+        },
+        {
+            "id": 321,
+            "text": "Table 1: Summar y of Analysis Datasets"
+        },
+        {
+            "id": 322,
+            "text": "thelocalnetworkweights.Themethodof["
+        },
+        {
+            "id": 323,
+            "text": "7"
+        },
+        {
+            "id": 324,
+            "text": "]only"
+        },
+        {
+            "id": 325,
+            "text": "allows"
+        },
+        {
+            "id": 326,
+            "text": "fora"
+        },
+        {
+            "id": 327,
+            "text": "sparse solution,it does notguarantee the degreeof sparsity. Their"
+        },
+        {
+            "id": 328,
+            "text": "methodincludesathresholdparameterwhich canbeusedtotrun-"
+        },
+        {
+            "id": 329,
+            "text": "catesmallweightstozeroandencouragea sparsesolution.Section"
+        },
+        {
+            "id": 330,
+            "text": "5compares thetradeo\u02dbbetween accuracyandsparsityalong with"
+        },
+        {
+            "id": 331,
+            "text": "resulting savings in energy whilst var ying this parameter."
+        },
+        {
+            "id": 332,
+            "text": "4 SMART HOME DEPLOYMEN T"
+        },
+        {
+            "id": 333,
+            "text": "Weconductedalargescaledeploymentinthehomeofoneof"
+        },
+        {
+            "id": 334,
+            "text": "ourgroupmembers.Wedeployedatotaloftwenty-onesensors"
+        },
+        {
+            "id": 335,
+            "text": "aroundthehome.Figure2presentsa\u02daoorplanofthedeployment"
+        },
+        {
+            "id": 336,
+            "text": "environment and the location of sensors therein."
+        },
+        {
+            "id": 337,
+            "text": "4.1 Application Network Architecture"
+        },
+        {
+            "id": 338,
+            "text": "This sectiondetails the hierarchicalstructure ofour deployment"
+        },
+        {
+            "id": 339,
+            "text": "andtheconnectivitybetweeneachlayerinthehierarchy.Figure"
+        },
+        {
+            "id": 340,
+            "text": "1presentsahighlevelover viewofourhierarchicalarchitecture."
+        },
+        {
+            "id": 341,
+            "text": "Duringthemodeltrainingphase,allsensorssendtheirdatatothe"
+        },
+        {
+            "id": 342,
+            "text": "cloud.Oncedatahasbe encollected,ahierarchyawaremodelis"
+        },
+        {
+            "id": 343,
+            "text": "trainedo\u02dcineandtheresultinglocalpartialinferencemodelsare"
+        },
+        {
+            "id": 344,
+            "text": "deployedto eachofthe localaggregators inthesensing hierarchy."
+        },
+        {
+            "id": 345,
+            "text": "All communication between devices uses the MQTT protocol [1]."
+        },
+        {
+            "id": 346,
+            "text": "We introducea\u0010roomlevelaggregator\u0011 runningonaRaspberry"
+        },
+        {
+            "id": 347,
+            "text": "Pi.Eachroomhasseveralsensorsdeployedinvariouslocations"
+        },
+        {
+            "id": 348,
+            "text": "measuringaparticularphenomenaofinterest.Eachsensorconnects"
+        },
+        {
+            "id": 349,
+            "text": "toaprocessingnode-aP hoton,oraRaspberr yPiZero,depending"
+        },
+        {
+            "id": 350,
+            "text": "onthetypeofinterfacerequiredbythesensor.Thisprocessing"
+        },
+        {
+            "id": 351,
+            "text": "node collectsdata fromthe sensors andperforms partial inference"
+        },
+        {
+            "id": 352,
+            "text": "during the testing phase."
+        },
+        {
+            "id": 353,
+            "text": "Mostsensors, suchasthesmart-plugs, comewithon-board"
+        },
+        {
+            "id": 354,
+            "text": "micro-controllersthatinterfacewiththeactualsensorandsendthe"
+        },
+        {
+            "id": 355,
+            "text": "raw readingsout to a hubor some otherinterface. Ideally, our hier-"
+        },
+        {
+            "id": 356,
+            "text": "archicalmodels wouldrunon thesenativecomputing platforms."
+        },
+        {
+            "id": 357,
+            "text": "However, sincemanysensors are o\u02db theshelf products, we don't"
+        },
+        {
+            "id": 358,
+            "text": "usuallyhaveaccesstomodifythe\u02d9rmwareandhenceemulatesuch"
+        },
+        {
+            "id": 359,
+            "text": "localprocessingbyconnectingtoaP hotonoraRaspberr yPiZero."
+        },
+        {
+            "id": 360,
+            "text": "WeuseanIntelNUCcomputer["
+        },
+        {
+            "id": 361,
+            "text": "6"
+        },
+        {
+            "id": 362,
+            "text": "]asin-house\u0010cloudser ver.\u0011We"
+        },
+        {
+            "id": 363,
+            "text": "20"
+        },
+        {
+            "id": 364,
+            "text": "E\u02d9icient Sparse Processing in Smart Home Applications SenSys-ML 2019, Novemb er 10, 2019, New York, NY, USA"
+        },
+        {
+            "id": 365,
+            "text": "Figure 2: Sensor deploymentinsmarthome.(1)kitchen doorcontact(2)fridge door contact (3) kitchen drawer contacts1&2"
+        },
+        {
+            "id": 366,
+            "text": "(4) teapot smart-plug (5)kitchensmartbulb(6)metasense(7) airb eam(8)kitchenangularmotion(9)kitchenlocatorbeacon"
+        },
+        {
+            "id": 367,
+            "text": "1 (10) kitchen cabinet contact1(11)kitchencabinetcontact2(12)kitchenlocator b eacon2(13)kitchenpantr ycontact(14)"
+        },
+        {
+            "id": 368,
+            "text": "dining room multi-sensor (15)dining roomlocatorbeacon (16) livingroom locatorbeacon1(17)livingroom motion 1(18) T V"
+        },
+        {
+            "id": 369,
+            "text": "smart plug (19) living room angular motion (20) living room motion 2 (21) living room locator beacon 2"
+        },
+        {
+            "id": 370,
+            "text": "Clearing table"
+        },
+        {
+            "id": 371,
+            "text": "Drinking tea"
+        },
+        {
+            "id": 372,
+            "text": "Eating"
+        },
+        {
+            "id": 373,
+            "text": "Making Tea"
+        },
+        {
+            "id": 374,
+            "text": "Prepping Food"
+        },
+        {
+            "id": 375,
+            "text": "Setting Table"
+        },
+        {
+            "id": 376,
+            "text": "Watching T V"
+        },
+        {
+            "id": 377,
+            "text": "805"
+        },
+        {
+            "id": 378,
+            "text": "174"
+        },
+        {
+            "id": 379,
+            "text": "1042"
+        },
+        {
+            "id": 380,
+            "text": "540"
+        },
+        {
+            "id": 381,
+            "text": "416"
+        },
+        {
+            "id": 382,
+            "text": "287"
+        },
+        {
+            "id": 383,
+            "text": "1373"
+        },
+        {
+            "id": 384,
+            "text": "Table 2: Numb er of instances for each activity"
+        },
+        {
+            "id": 385,
+            "text": "implementeda shared MQTTmessage bus,which all devicesuse"
+        },
+        {
+            "id": 386,
+            "text": "tosenddata.Eachdeviceinthehierarchysendsitspartialoutput"
+        },
+        {
+            "id": 387,
+            "text": "toaspeci\u02d9ctopic.Thecorrespondingdataaggregatorinthenext"
+        },
+        {
+            "id": 388,
+            "text": "levelof thehierarchysubscribesto thistopic,to obtainthepartial"
+        },
+        {
+            "id": 389,
+            "text": "inference output."
+        },
+        {
+            "id": 390,
+            "text": "While we have connected all devices runningmachine learning"
+        },
+        {
+            "id": 391,
+            "text": "computationstoastandardWiFinetworkinourexperiments,a"
+        },
+        {
+            "id": 392,
+            "text": "realworlddeploymentwouldsupportdi\u02dberentcommunication"
+        },
+        {
+            "id": 393,
+            "text": "protocols.Forexample,fortheZigbeeandZ-Wavesensorsweusea"
+        },
+        {
+            "id": 394,
+            "text": "SmartThingsHubtofor wardtheireventstothelocalnetworkand"
+        },
+        {
+            "id": 395,
+            "text": "thentheMQTTbrokertofor wardtheeventsviaWiFitoaRasp-"
+        },
+        {
+            "id": 396,
+            "text": "berry PIwhereweexecute theclassi\u02d9er.Amoree\u02ddcientapproach"
+        },
+        {
+            "id": 397,
+            "text": "wouldb eto adda ZigbeeandZ-Waveradio tothe PIand runthe"
+        },
+        {
+            "id": 398,
+            "text": "computationwherethedataisreceived,thishoweverwouldde-"
+        },
+        {
+            "id": 399,
+            "text": "priveusoftheusefulSmartThingstoolstocon\u02d9gureandmonitor"
+        },
+        {
+            "id": 400,
+            "text": "thesensornetwork.Analternativewouldhaveb eentorunthe"
+        },
+        {
+            "id": 401,
+            "text": "classi\u02d9erontheSmartThingsHub.Wedidnotchoosethissecond"
+        },
+        {
+            "id": 402,
+            "text": "option b ecause, while itis possibleto write aclassi\u02d9er onSmart-"
+        },
+        {
+            "id": 403,
+            "text": "Things,itwouldcurrentlyrunontheSmartThingsCloud,therefore"
+        },
+        {
+            "id": 404,
+            "text": "wewouldnotbeabletomeasurepowerandperformanceduring"
+        },
+        {
+            "id": 405,
+            "text": "ourexperiments.Thisillustratesanimportantpoint:eventhough"
+        },
+        {
+            "id": 406,
+            "text": "localprocessingmaybepossible"
+        },
+        {
+            "id": 407,
+            "text": "inprinciple"
+        },
+        {
+            "id": 408,
+            "text": "softwarelimitations"
+        },
+        {
+            "id": 409,
+            "text": "imposed by device manufacturers may preclude it."
+        },
+        {
+            "id": 410,
+            "text": "4.2 Data Colle ction"
+        },
+        {
+            "id": 411,
+            "text": "Threerounds ofdatacollectionwere p erformedat thetesthome"
+        },
+        {
+            "id": 412,
+            "text": "usinga di\u02dberenttest subjecteach time.The testsubject performed"
+        },
+        {
+            "id": 413,
+            "text": "aseriesofeightactivities:preparingfoo d,cookingfood,setting"
+        },
+        {
+            "id": 414,
+            "text": "thetable,eatingfood,clearingthetable,makingtea,drinkingtea,"
+        },
+        {
+            "id": 415,
+            "text": "andwatchingTV.Whilepreparingfood,thetestsubjectcollected"
+        },
+        {
+            "id": 416,
+            "text": "ingredientsfrom akitchen pantry andrefrigerator.While cooking,"
+        },
+        {
+            "id": 417,
+            "text": "thesubjectpreparedpastaandtomatosauceusingthefoodprepared"
+        },
+        {
+            "id": 418,
+            "text": "previously. Thesubject thensetthe diningroom tableand atethe"
+        },
+        {
+            "id": 419,
+            "text": "prepared mealat the table.The subject thencleared the tableand"
+        },
+        {
+            "id": 420,
+            "text": "boiled water toprepare tea using anelectric tea kettle. Finally, the"
+        },
+        {
+            "id": 421,
+            "text": "subjectdrankteaandwatchedTVinthelivingroom.Groundtruth"
+        },
+        {
+            "id": 422,
+            "text": "labels were gathered manually, recordingthe timestampat which"
+        },
+        {
+            "id": 423,
+            "text": "theactivitychanged,andbyrecordingvideoandaudio.Table2"
+        },
+        {
+            "id": 424,
+            "text": "showsthenumberofinstancesofeachactivityrecorded,where"
+        },
+        {
+            "id": 425,
+            "text": "eachinstanceofanactivitycorresp ondstomultiplewindowsof"
+        },
+        {
+            "id": 426,
+            "text": "sensorvalues.Sinceawidevarietyofbinar yandcontinuoussensors"
+        },
+        {
+            "id": 427,
+            "text": "wereused,thereadingsweresyncedtothehighestsamplingdevice."
+        },
+        {
+            "id": 428,
+            "text": "Trainingandpredictionhappenoverthesewindows.Table1shows"
+        },
+        {
+            "id": 429,
+            "text": "thenumber ofindividual datapointscollected foreach testsubject"
+        },
+        {
+            "id": 430,
+            "text": "(notethatthisisdi\u02dberentfromthenumberofactivityinstances"
+        },
+        {
+            "id": 431,
+            "text": "recorded."
+        },
+        {
+            "id": 432,
+            "text": "5 EXPERIMEN TAL EVALUATION"
+        },
+        {
+            "id": 433,
+            "text": "Inthis section,we discussvarious experimentswe performedfor"
+        },
+        {
+            "id": 434,
+            "text": "real-timeevaluation. We evaluatethe systemon twokey metrics:"
+        },
+        {
+            "id": 435,
+            "text": "inference accuracy, energy usage. We compare the performance of"
+        },
+        {
+            "id": 436,
+            "text": "traditional Monolithic Neural Network (MNN) with our proposed"
+        },
+        {
+            "id": 437,
+            "text": "sparseHierarchicalNeuralNetwork(HNN).Theenergyre quire d"
+        },
+        {
+            "id": 438,
+            "text": "forcommunication overheadisnotfactored intheresults. Thisis"
+        },
+        {
+            "id": 439,
+            "text": "due to the reasoning that changing the sparsity ofthe model only"
+        },
+        {
+            "id": 440,
+            "text": "a\u02dbects thecomputational complexity anddoes not changethe data"
+        },
+        {
+            "id": 441,
+            "text": "21"
+        },
+        {
+            "id": 442,
+            "text": "SenSys-ML 2019, November 10, 2019, New York, NY, USA"
+        },
+        {
+            "id": 443,
+            "text": "Chandrasekaran et al."
+        },
+        {
+            "id": 444,
+            "text": "rate.Henceanysavingsinenergyduetocommunicationwillbethe"
+        },
+        {
+            "id": 445,
+            "text": "sameasseenin["
+        },
+        {
+            "id": 446,
+            "text": "2"
+        },
+        {
+            "id": 447,
+            "text": "].Thesparsemodelsprovideadditionalsavings"
+        },
+        {
+            "id": 448,
+            "text": "over it."
+        },
+        {
+            "id": 449,
+            "text": "5.1 Inference Accuracy: Monolithicvs"
+        },
+        {
+            "id": 450,
+            "text": "Hierarchical"
+        },
+        {
+            "id": 451,
+            "text": "In thissection wepresent ananalysis ofour proposedmethods on"
+        },
+        {
+            "id": 452,
+            "text": "the datacollectedin our home-deployment. Our goal isto illustrate"
+        },
+        {
+            "id": 453,
+            "text": "thatourproposedhierarchyawaremethodscandelivercomparable"
+        },
+        {
+            "id": 454,
+            "text": "(orsuperior)accuracytomethodswhichallowforfullcommunica-"
+        },
+        {
+            "id": 455,
+            "text": "tion.Weemphasize that thepurpose ofthiswork is"
+        },
+        {
+            "id": 456,
+            "text": "not"
+        },
+        {
+            "id": 457,
+            "text": "toimprove"
+        },
+        {
+            "id": 458,
+            "text": "onstate-of-the-artaccuracyormetho dsforactivitydete ctionin"
+        },
+        {
+            "id": 459,
+            "text": "smarthomes.Rather,wemerely se ek toshowthatexisting te ch-"
+        },
+        {
+            "id": 460,
+            "text": "niquescanb eimplementedinacommunicatione\u02ddcientmanner"
+        },
+        {
+            "id": 461,
+            "text": "by making them hierarchy aware."
+        },
+        {
+            "id": 462,
+            "text": "Figure3presentsacomparisonofaccuracyforthemonolithic"
+        },
+        {
+            "id": 463,
+            "text": "andhierarchy-awareapproachesontestsubject3-forwhichwe"
+        },
+        {
+            "id": 464,
+            "text": "wereabletoobtainthemostaccurateresults.Themodelswere"
+        },
+        {
+            "id": 465,
+            "text": "trainedonsubjects1and2andsubject3wasusedastheheldout"
+        },
+        {
+            "id": 466,
+            "text": "testset.The X-axis represents di\u02dberent valuesof"
+        },
+        {
+            "id": 467,
+            "text": "log"
+        },
+        {
+            "id": 468,
+            "text": "\u00b9"
+        },
+        {
+            "id": 469,
+            "text": "\u00ba"
+        },
+        {
+            "id": 470,
+            "text": "parameter"
+        },
+        {
+            "id": 471,
+            "text": "whichcontrolssparsityintheresultingnetwork.Thisthreshold"
+        },
+        {
+            "id": 472,
+            "text": "parameterdoesnotdirectlycontrolsparsityandisonlyuse dto"
+        },
+        {
+            "id": 473,
+            "text": "truncateweightswhichare"
+        },
+        {
+            "id": 474,
+            "text": "likely"
+        },
+        {
+            "id": 475,
+            "text": "tobezero.Increasingitdoesnot"
+        },
+        {
+            "id": 476,
+            "text": "necessar yresultinanactualincreaseinthenumberofweights"
+        },
+        {
+            "id": 477,
+            "text": "withzerovalues.Thenumberson topof eachbaris thesparsity of"
+        },
+        {
+            "id": 478,
+            "text": "theresultingnetwork.Thenumberofoutputunitsineach\u0010local\u0011"
+        },
+        {
+            "id": 479,
+            "text": "MLPrunningonadistributeddeviceis"
+        },
+        {
+            "id": 480,
+            "text": "2"
+        },
+        {
+            "id": 481,
+            "text": "fordevicesinthe\u02d9rsttier"
+        },
+        {
+            "id": 482,
+            "text": "ofhierarchy,and"
+        },
+        {
+            "id": 483,
+            "text": "4"
+        },
+        {
+            "id": 484,
+            "text": "inthesecondtier.EachbarinFigure3presents"
+        },
+        {
+            "id": 485,
+            "text": "resultsusingtheindicatednumberofhiddenunits"
+        },
+        {
+            "id": 486,
+            "text": "perhiddenlayer"
+        },
+        {
+            "id": 487,
+            "text": "ineachlocalnetwork.Forexample,thebluebarindicateseach"
+        },
+        {
+            "id": 488,
+            "text": "localnetworkhas"
+        },
+        {
+            "id": 489,
+            "text": "16"
+        },
+        {
+            "id": 490,
+            "text": "hiddenunitsper hiddenlayer,meaninglocal"
+        },
+        {
+            "id": 491,
+            "text": "networksinthe\u02d9rsttierofthehierarchyhavethearchitecture"
+        },
+        {
+            "id": 492,
+            "text": "\u00b9"
+        },
+        {
+            "id": 493,
+            "text": "K"
+        },
+        {
+            "id": 494,
+            "text": ";"
+        },
+        {
+            "id": 495,
+            "text": "16"
+        },
+        {
+            "id": 496,
+            "text": ";"
+        },
+        {
+            "id": 497,
+            "text": "2"
+        },
+        {
+            "id": 498,
+            "text": "\u00ba"
+        },
+        {
+            "id": 499,
+            "text": ", where"
+        },
+        {
+            "id": 500,
+            "text": "K"
+        },
+        {
+            "id": 501,
+            "text": "is thenumber ofinput features.In presenting"
+        },
+        {
+            "id": 502,
+            "text": "theseresults,ourgoalistobetterunderstandthetradeo\u02dbsbetween"
+        },
+        {
+            "id": 503,
+            "text": "accuracy, complexity and sparsity in the local MLP model."
+        },
+        {
+            "id": 504,
+            "text": "5.1.1Results."
+        },
+        {
+            "id": 505,
+            "text": "Overall,we seethatthe hierarchyawareapproach"
+        },
+        {
+            "id": 506,
+            "text": "yieldscomparableaccuracytothemonolithicapproachwhichal-"
+        },
+        {
+            "id": 507,
+            "text": "lowsforfullcommunicationbetweenthedevices.Theseresults"
+        },
+        {
+            "id": 508,
+            "text": "validateourcentralclaimthatcommunicatione\u02ddciencycanbe"
+        },
+        {
+            "id": 509,
+            "text": "improved bytraining hierarchy aware model withoutsacri\u02d9cing a"
+        },
+        {
+            "id": 510,
+            "text": "substantialdegree ofaccuracy. Wealso obser vethat weare ableto"
+        },
+        {
+            "id": 511,
+            "text": "sparsifynetworkssubstantiallywhilestillattaininghighaccuracy."
+        },
+        {
+            "id": 512,
+            "text": "Forexample,inthehierarchy aware casefor"
+        },
+        {
+            "id": 513,
+            "text": "="
+        },
+        {
+            "id": 514,
+            "text": "1"
+        },
+        {
+            "id": 515,
+            "text": "andwith"
+        },
+        {
+            "id": 516,
+            "text": "256"
+        },
+        {
+            "id": 517,
+            "text": "hiddenunits,we areabletoomitalmost"
+        },
+        {
+            "id": 518,
+            "text": "87%"
+        },
+        {
+            "id": 519,
+            "text": "oftheweightsin the"
+        },
+        {
+            "id": 520,
+            "text": "network. This correspondsto a dense network withonly"
+        },
+        {
+            "id": 521,
+            "text": "32"
+        },
+        {
+            "id": 522,
+            "text": "hidden"
+        },
+        {
+            "id": 523,
+            "text": "unitsinthe\u02d9rstlayer.Unsurprisingly,agreaterfractionofweights"
+        },
+        {
+            "id": 524,
+            "text": "can be zeroed out forlarger networks. This is valuableas it enables"
+        },
+        {
+            "id": 525,
+            "text": "us touse larger networks, whichlearn more complexpatternsin"
+        },
+        {
+            "id": 526,
+            "text": "data,withoutdramaticallyincreasingstoragerequirements.While"
+        },
+        {
+            "id": 527,
+            "text": "weagainstressthatourgoalisnottocomparetheaccuracyofour"
+        },
+        {
+            "id": 528,
+            "text": "approachwithpriorwork,weremarkthatouraccuracyresultsare"
+        },
+        {
+            "id": 529,
+            "text": "comparable to"
+        },
+        {
+            "id": 530,
+            "text": "73%"
+        },
+        {
+            "id": 531,
+            "text": "-"
+        },
+        {
+            "id": 532,
+            "text": "94%"
+        },
+        {
+            "id": 533,
+            "text": "achieved by state-of-the-art as in [8]."
+        },
+        {
+            "id": 534,
+            "text": "Reassuringly,we\u02d9ndthatincreasingthenumberofhiddenunits"
+        },
+        {
+            "id": 535,
+            "text": "perhiddenlayerhaslittle(andsometimesnegative)e\u02dbectonclassi-"
+        },
+        {
+            "id": 536,
+            "text": "\u02d9cation accuracy inthe hierarchy aware case.This means that we"
+        },
+        {
+            "id": 537,
+            "text": "can obtain computational e\u02ddciency gains by reducing the size of"
+        },
+        {
+            "id": 538,
+            "text": "Table3:AccuracyVSSparsityonsubject1betweenHNNand"
+        },
+        {
+            "id": 539,
+            "text": "MNN."
+        },
+        {
+            "id": 540,
+            "text": "Model"
+        },
+        {
+            "id": 541,
+            "text": "Threshold"
+        },
+        {
+            "id": 542,
+            "text": "7"
+        },
+        {
+            "id": 543,
+            "text": "6"
+        },
+        {
+            "id": 544,
+            "text": "5"
+        },
+        {
+            "id": 545,
+            "text": "4"
+        },
+        {
+            "id": 546,
+            "text": "3"
+        },
+        {
+            "id": 547,
+            "text": "HNN"
+        },
+        {
+            "id": 548,
+            "text": "Sparsity"
+        },
+        {
+            "id": 549,
+            "text": "0.3469"
+        },
+        {
+            "id": 550,
+            "text": "0.4685"
+        },
+        {
+            "id": 551,
+            "text": "0.4845"
+        },
+        {
+            "id": 552,
+            "text": "0.5305"
+        },
+        {
+            "id": 553,
+            "text": "0.5501"
+        },
+        {
+            "id": 554,
+            "text": "Accuracy"
+        },
+        {
+            "id": 555,
+            "text": "0.6154"
+        },
+        {
+            "id": 556,
+            "text": "0.5828"
+        },
+        {
+            "id": 557,
+            "text": "0.6384"
+        },
+        {
+            "id": 558,
+            "text": "0.5850"
+        },
+        {
+            "id": 559,
+            "text": "0.6078"
+        },
+        {
+            "id": 560,
+            "text": "MNN"
+        },
+        {
+            "id": 561,
+            "text": "Sparsity"
+        },
+        {
+            "id": 562,
+            "text": "0.2711"
+        },
+        {
+            "id": 563,
+            "text": "0.3624"
+        },
+        {
+            "id": 564,
+            "text": "0.4691"
+        },
+        {
+            "id": 565,
+            "text": "0.4829"
+        },
+        {
+            "id": 566,
+            "text": "0.5947"
+        },
+        {
+            "id": 567,
+            "text": "Accuracy"
+        },
+        {
+            "id": 568,
+            "text": "0.6703"
+        },
+        {
+            "id": 569,
+            "text": "0.6777"
+        },
+        {
+            "id": 570,
+            "text": "0.6776"
+        },
+        {
+            "id": 571,
+            "text": "0.7398"
+        },
+        {
+            "id": 572,
+            "text": "0.5272"
+        },
+        {
+            "id": 573,
+            "text": "Table 4:AccuracyVSSparsityonsubject2between HNN and"
+        },
+        {
+            "id": 574,
+            "text": "MNN."
+        },
+        {
+            "id": 575,
+            "text": "Threshold"
+        },
+        {
+            "id": 576,
+            "text": "7"
+        },
+        {
+            "id": 577,
+            "text": "6"
+        },
+        {
+            "id": 578,
+            "text": "5"
+        },
+        {
+            "id": 579,
+            "text": "4"
+        },
+        {
+            "id": 580,
+            "text": "3"
+        },
+        {
+            "id": 581,
+            "text": "HNN"
+        },
+        {
+            "id": 582,
+            "text": "Sparsity"
+        },
+        {
+            "id": 583,
+            "text": "0.3523"
+        },
+        {
+            "id": 584,
+            "text": "0.4127"
+        },
+        {
+            "id": 585,
+            "text": "0.4772"
+        },
+        {
+            "id": 586,
+            "text": "0.5669"
+        },
+        {
+            "id": 587,
+            "text": "0.5545"
+        },
+        {
+            "id": 588,
+            "text": "Accuracy"
+        },
+        {
+            "id": 589,
+            "text": "0.7146"
+        },
+        {
+            "id": 590,
+            "text": "0.4589"
+        },
+        {
+            "id": 591,
+            "text": "0.5775"
+        },
+        {
+            "id": 592,
+            "text": "0.4584"
+        },
+        {
+            "id": 593,
+            "text": "0.3879"
+        },
+        {
+            "id": 594,
+            "text": "MNN"
+        },
+        {
+            "id": 595,
+            "text": "Sparsity"
+        },
+        {
+            "id": 596,
+            "text": "0.2231"
+        },
+        {
+            "id": 597,
+            "text": "0.2972"
+        },
+        {
+            "id": 598,
+            "text": "0.4223"
+        },
+        {
+            "id": 599,
+            "text": "0.4929"
+        },
+        {
+            "id": 600,
+            "text": "0.5521"
+        },
+        {
+            "id": 601,
+            "text": "Accuracy"
+        },
+        {
+            "id": 602,
+            "text": "0.4242"
+        },
+        {
+            "id": 603,
+            "text": "0.4124"
+        },
+        {
+            "id": 604,
+            "text": "0.4344"
+        },
+        {
+            "id": 605,
+            "text": "0.4348"
+        },
+        {
+            "id": 606,
+            "text": "0.4239"
+        },
+        {
+            "id": 607,
+            "text": "Table 5:AccuracyVSSparsityonsubject3between HNN and"
+        },
+        {
+            "id": 608,
+            "text": "MNN."
+        },
+        {
+            "id": 609,
+            "text": "Threshold"
+        },
+        {
+            "id": 610,
+            "text": "7"
+        },
+        {
+            "id": 611,
+            "text": "6"
+        },
+        {
+            "id": 612,
+            "text": "5"
+        },
+        {
+            "id": 613,
+            "text": "4"
+        },
+        {
+            "id": 614,
+            "text": "3"
+        },
+        {
+            "id": 615,
+            "text": "HNN"
+        },
+        {
+            "id": 616,
+            "text": "Sparsity"
+        },
+        {
+            "id": 617,
+            "text": "0.2814"
+        },
+        {
+            "id": 618,
+            "text": "0.3996"
+        },
+        {
+            "id": 619,
+            "text": "0.4611"
+        },
+        {
+            "id": 620,
+            "text": "0.4933"
+        },
+        {
+            "id": 621,
+            "text": "0.5839"
+        },
+        {
+            "id": 622,
+            "text": "Accuracy"
+        },
+        {
+            "id": 623,
+            "text": "0.8402"
+        },
+        {
+            "id": 624,
+            "text": "0.7919"
+        },
+        {
+            "id": 625,
+            "text": "0.8270"
+        },
+        {
+            "id": 626,
+            "text": "0.7402"
+        },
+        {
+            "id": 627,
+            "text": "0.7099"
+        },
+        {
+            "id": 628,
+            "text": "MNN"
+        },
+        {
+            "id": 629,
+            "text": "Sparsity"
+        },
+        {
+            "id": 630,
+            "text": "0.1899"
+        },
+        {
+            "id": 631,
+            "text": "0.2969"
+        },
+        {
+            "id": 632,
+            "text": "0.3228"
+        },
+        {
+            "id": 633,
+            "text": "0.4628"
+        },
+        {
+            "id": 634,
+            "text": "0.4458"
+        },
+        {
+            "id": 635,
+            "text": "Accuracy"
+        },
+        {
+            "id": 636,
+            "text": "0.8126"
+        },
+        {
+            "id": 637,
+            "text": "0.7974"
+        },
+        {
+            "id": 638,
+            "text": "0.7736"
+        },
+        {
+            "id": 639,
+            "text": "0.8240"
+        },
+        {
+            "id": 640,
+            "text": "0.7993"
+        },
+        {
+            "id": 641,
+            "text": "local networks without incurring meaningful losses in accuracy. In"
+        },
+        {
+            "id": 642,
+            "text": "section5.3weshowthisreductioninnetworkcomplexitytranslates"
+        },
+        {
+            "id": 643,
+            "text": "intoenergysavings.Whiletheseresultsareoptimisticforsmaller"
+        },
+        {
+            "id": 644,
+            "text": "localnetworks,unfortunately,therearenoknownrobustte ch-"
+        },
+        {
+            "id": 645,
+            "text": "niques forselecting model architecture apriori oftraining. Overall,"
+        },
+        {
+            "id": 646,
+            "text": "wetaketheseexperimentsasevidencethatourproposedmethods"
+        },
+        {
+            "id": 647,
+            "text": "canbedeployedonpracticalapplicationswithoutsubstantially"
+        },
+        {
+            "id": 648,
+            "text": "losing accuracy relative to the full communication setting."
+        },
+        {
+            "id": 649,
+            "text": "5.2 Activity Re cognition Accuracy with Sparse"
+        },
+        {
+            "id": 650,
+            "text": "Neural Networks"
+        },
+        {
+            "id": 651,
+            "text": "Inthis sectionwe evaluatethe accuracyof themodel for detecting"
+        },
+        {
+            "id": 652,
+            "text": "the activities of daily living. In addition to presenting the accuracy"
+        },
+        {
+            "id": 653,
+            "text": "of activityrecognition, we also aimto showthat oursparse models"
+        },
+        {
+            "id": 654,
+            "text": "have littleto nolossin accuracycompared tomonolithic models"
+        },
+        {
+            "id": 655,
+            "text": "-withandwithout sparsity.Tables3,4and 5showtheresultsof"
+        },
+        {
+            "id": 656,
+            "text": "overallaccuracyofactivityrecognitionacrossdi\u02dberentlevelsof"
+        },
+        {
+            "id": 657,
+            "text": "sparsity for both Hierarchical and Monolithic models. From empir-"
+        },
+        {
+            "id": 658,
+            "text": "icalanalysiswefoundthatthebestneuralnetworkarchitecture"
+        },
+        {
+            "id": 659,
+            "text": "was2hiddenlayerswith64hiddenunitseach.Allresultsbelow"
+        },
+        {
+            "id": 660,
+            "text": "are for this con\u02d9guration of neural network."
+        },
+        {
+            "id": 661,
+            "text": "For subject 1, highestaccuracy the monolithic model achieved"
+        },
+        {
+            "id": 662,
+            "text": "was66%.FromTable3wecanseethatsparseMNNseemstoperform"
+        },
+        {
+            "id": 663,
+            "text": "slightlybetteroverallwithhighestaccuracyof67%.ThesparseHNN"
+        },
+        {
+            "id": 664,
+            "text": "achievesamaximumaccuracyof63%at48%sparsity.Forsubject2"
+        },
+        {
+            "id": 665,
+            "text": "the bestnon-sparsemonolithic model achieves an accuracy of86%."
+        },
+        {
+            "id": 666,
+            "text": "Table4showsthatHNNperformsbetterthanMNNwithahighest"
+        },
+        {
+            "id": 667,
+            "text": "accuracyof 71%for 35%sparsity.Wecanalsoseethat thesparse"
+        },
+        {
+            "id": 668,
+            "text": "22"
+        },
+        {
+            "id": 669,
+            "text": "E\u02d9icient Sparse Processing in Smart Home Applications SenSys-ML 2019, Novemb er 10, 2019, New York, NY, USA"
+        },
+        {
+            "id": 670,
+            "text": "Hierarchy Aware"
+        },
+        {
+            "id": 671,
+            "text": "Monolithic"
+        },
+        {
+            "id": 672,
+            "text": "Figure 3: Sparse Monolithic and Sparse Hierarchy-Aware Accuracy for di\u02dberent no of hidden units per hidden layer."
+        },
+        {
+            "id": 673,
+            "text": "MNNperformssigni\u02d9cantlyworsecomparedtothemonolithic"
+        },
+        {
+            "id": 674,
+            "text": "approach with 42% accuracy."
+        },
+        {
+            "id": 675,
+            "text": "ForSubject 6,thebaselineaccuracy achieved bythenon-sparse"
+        },
+        {
+            "id": 676,
+            "text": "monolithic model is82%. Table 5 showsthat sparse HNNhas better"
+        },
+        {
+            "id": 677,
+            "text": "orcomparableaccuracytosparseMNN.ThesparseHNNhasa"
+        },
+        {
+            "id": 678,
+            "text": "highest accuracy of 84%for 28% sparsity. However for 46% sparsity"
+        },
+        {
+            "id": 679,
+            "text": "it achieves an accuracy of 82% which gives better overall trade-o\u02db"
+        },
+        {
+            "id": 680,
+            "text": "between accuracy, energy and communication costs."
+        },
+        {
+            "id": 681,
+            "text": "5.2.1Discussion."
+        },
+        {
+            "id": 682,
+            "text": "Overall we obser ve that sparse HNN performed"
+        },
+        {
+            "id": 683,
+            "text": "betterforsubjects2and6,whileforsubject1sparseMNNp er-"
+        },
+        {
+            "id": 684,
+            "text": "formedslightlybetter.Figure4showstheenergyreductionachieved"
+        },
+        {
+            "id": 685,
+            "text": "fordi\u02dberentsparsityforthebestarchitecture(64hiddenunitsper"
+        },
+        {
+            "id": 686,
+            "text": "layer) chosenfromtraining. Thelowestandhighestsparsitythat"
+        },
+        {
+            "id": 687,
+            "text": "yieldedthebestaccuracyforanysubjectismarkedbyvertical"
+        },
+        {
+            "id": 688,
+            "text": "lines.Wecanobser vethatfor35-48%sparsityweget25-35%energy"
+        },
+        {
+            "id": 689,
+            "text": "savingswithcomparableaccuracy.Whiletheanalysiswasdonefor"
+        },
+        {
+            "id": 690,
+            "text": "activityrecognitioninasmarthome,theprinciplesareapplicable"
+        },
+        {
+            "id": 691,
+            "text": "foranyIoTwirelesssensornetwork.Thisvalidatesthatsparse"
+        },
+        {
+            "id": 692,
+            "text": "hierarchical neural networks could reduce energy usage."
+        },
+        {
+            "id": 693,
+            "text": "5.3 Energy Usage"
+        },
+        {
+            "id": 694,
+            "text": "Inthis sectionwe analyzethe trade-o\u02dbsbetween sparsityand en-"
+        },
+        {
+            "id": 695,
+            "text": "ergy usage. We test our implementation on two embedded devices"
+        },
+        {
+            "id": 696,
+            "text": "whicharerepresentativeoftypicalIoTdevicesyoumightseein"
+        },
+        {
+            "id": 697,
+            "text": "use:Raspberr yPiZero["
+        },
+        {
+            "id": 698,
+            "text": "5"
+        },
+        {
+            "id": 699,
+            "text": "],P hoton["
+        },
+        {
+            "id": 700,
+            "text": "9"
+        },
+        {
+            "id": 701,
+            "text": "].TheRaspberr yPiZerohasa"
+        },
+        {
+            "id": 702,
+            "text": "1GHzsingle-coreCPUwith512MBRAMandtheP hoton featuresa"
+        },
+        {
+            "id": 703,
+            "text": "120MHz ARMCortex M3 with 128KBRAM. In addition, wetr y to"
+        },
+        {
+            "id": 704,
+            "text": "implement oursparse model on anArduino UNO["
+        },
+        {
+            "id": 705,
+            "text": "3"
+        },
+        {
+            "id": 706,
+            "text": "] whichhas ex-"
+        },
+        {
+            "id": 707,
+            "text": "tremelysmallcomputationalpower.TheUNOusesanATmega328P"
+        },
+        {
+            "id": 708,
+            "text": "Figure 4: Monolithic and Hierarchy-Aware Accuracy"
+        },
+        {
+            "id": 709,
+            "text": "microcontroller which runs at 16MHz and has 2KB of RAM. The"
+        },
+        {
+            "id": 710,
+            "text": "energyused foran inferenceis directlyproportional tothe number"
+        },
+        {
+            "id": 711,
+            "text": "ofcomputationsperformed.Thisisin\u02dauencedbynumberofhidden"
+        },
+        {
+            "id": 712,
+            "text": "unitsand sparsityof theweights. Below, weanalyze thetrade-o\u02dbs"
+        },
+        {
+            "id": 713,
+            "text": "betweenenergy,sparsityandnumberofhiddenunits.Weusea"
+        },
+        {
+            "id": 714,
+            "text": "neuralnetworkwith2hiddenlayers,forevaluation.Theinputand"
+        },
+        {
+            "id": 715,
+            "text": "output layers have 4 units each."
+        },
+        {
+            "id": 716,
+            "text": "5.3.1E\u02d9ectof size of neural network."
+        },
+        {
+            "id": 717,
+            "text": "For this analysis we \u02d9x spar-"
+        },
+        {
+            "id": 718,
+            "text": "sityat45%andvar ythenumb erofhiddenunitsperlayer.The"
+        },
+        {
+            "id": 719,
+            "text": "sparsitywaschosentobe 45asitstrikesanidealbalancebetween"
+        },
+        {
+            "id": 720,
+            "text": "accuracy and reducing energy.Figure 5shows theamount ofen-"
+        },
+        {
+            "id": 721,
+            "text": "ergysavedincomparisontoahierarchicalmodelwithoutsparsity"
+        },
+        {
+            "id": 722,
+            "text": "23"
+        },
+        {
+            "id": 723,
+            "text": "SenSys-ML 2019, November 10, 2019, New York, NY, USA"
+        },
+        {
+            "id": 724,
+            "text": "Chandrasekaran et al."
+        },
+        {
+            "id": 725,
+            "text": "Figure 5: Energy Reduction vs Numb er of hidden units"
+        },
+        {
+            "id": 726,
+            "text": "Figure 6: Energy reduction(%)fordi\u02dberent levelsofsparsity"
+        },
+        {
+            "id": 727,
+            "text": "forperforming120000inferencecomputations.TheArduinoUNO"
+        },
+        {
+            "id": 728,
+            "text": "runs out of memor y for more than 40 hidden units."
+        },
+        {
+            "id": 729,
+            "text": "Althoughtheresultsdon'tshowanoveralltrend,there'sadrop"
+        },
+        {
+            "id": 730,
+            "text": "in energysavings across both thePi Zero and theP hoton towards"
+        },
+        {
+            "id": 731,
+            "text": "the end. This isexplained by the fact that whensparsity is constant"
+        },
+        {
+            "id": 732,
+            "text": "andthenumberofhiddenunitsisincreased,thenumberofnon-"
+        },
+        {
+            "id": 733,
+            "text": "zeroweightsincreases.For45%sparsitybeyond50hiddenunitsper"
+        },
+        {
+            "id": 734,
+            "text": "layer,thee\u02dbectoftheincreasednumberofhiddenunitsdominates"
+        },
+        {
+            "id": 735,
+            "text": "oversparsity.Itisimportanttonotethatdespitethis,theapproach"
+        },
+        {
+            "id": 736,
+            "text": "produces30-35%(P hoton)and12-15%(PiZero)energyreductions."
+        },
+        {
+            "id": 737,
+            "text": "5.3.2E\u02d9ectofsparsity."
+        },
+        {
+            "id": 738,
+            "text": "We\u02d9xnumberofhiddenunitsperlayer"
+        },
+        {
+            "id": 739,
+            "text": "at30andvar ysparsity.Theenergyusedforperforming120000"
+        },
+        {
+            "id": 740,
+            "text": "inferencecomputationsismeasured.Weobser vefromFigure6"
+        },
+        {
+            "id": 741,
+            "text": "that energysavings increases withsparsity acrossall threedevices."
+        },
+        {
+            "id": 742,
+            "text": "Fora\u02d9xednumb erofhiddenunits,whensparsityisincreased,"
+        },
+        {
+            "id": 743,
+            "text": "moreweights becomezeroand hencecomputationsper inference"
+        },
+        {
+            "id": 744,
+            "text": "reduces.The\u02d9gureshowsthatforPiZerothesparsemodelismore"
+        },
+        {
+            "id": 745,
+            "text": "expensivewhensparsityisbelow25%.Thisisbe cause,theCSR"
+        },
+        {
+            "id": 746,
+            "text": "basedimplementationismoreexpensiveandine\u02ddcientfordense"
+        },
+        {
+            "id": 747,
+            "text": "matrices.Thetraditionalapproachtakesadvantageofcachelocality"
+        },
+        {
+            "id": 748,
+            "text": "whichreducesmemor yaccessesrequired.After25%sparsity,the"
+        },
+        {
+            "id": 749,
+            "text": "CSRbasedapproachisclearlymoree\u02ddcientasitonlyperforms"
+        },
+        {
+            "id": 750,
+            "text": "computationsfornonzeroweights.Thephotonwhichdoesn'thave"
+        },
+        {
+            "id": 751,
+            "text": "aninternalcachedo esn'tshowthistrendasallmemoryaccesses"
+        },
+        {
+            "id": 752,
+            "text": "havethesamecostandCSRimplementationreducesthenumber"
+        },
+        {
+            "id": 753,
+            "text": "ofaccesses.Thisvalidatesourexpe ctationsthatusingasparse"
+        },
+        {
+            "id": 754,
+            "text": "hierarchical model will produce additional energy savings."
+        },
+        {
+            "id": 755,
+            "text": "5.4 Drawbacks"
+        },
+        {
+            "id": 756,
+            "text": "Ourworkaddressestheusecasewherethemodeluseshetero-"
+        },
+        {
+            "id": 757,
+            "text": "geneousinputconsistingofdi\u02dberentkindsofsensordatahaving"
+        },
+        {
+            "id": 758,
+            "text": "di\u02dberentcharacteristics.Thisisincontrasttofederatedlearning"
+        },
+        {
+            "id": 759,
+            "text": "whichdealswiththecasewhereeachnodeprocessthesamekindof"
+        },
+        {
+            "id": 760,
+            "text": "data(eg.camera images).A potential pitfallin ourapproach isthat,"
+        },
+        {
+            "id": 761,
+            "text": "anerrorormalfunctionofasinglesensor/nodecouldadverselyaf-"
+        },
+        {
+            "id": 762,
+            "text": "fectthe\u02d9nalprediction.Weseektoexploreinthefuture,methodsto"
+        },
+        {
+            "id": 763,
+            "text": "make the model more robust to such failures. A potential approach"
+        },
+        {
+            "id": 764,
+            "text": "would be to propagate noise/simulated error during training."
+        },
+        {
+            "id": 765,
+            "text": "6 CONCLUSION"
+        },
+        {
+            "id": 766,
+            "text": "Withrisingimportanceofsmarthomeapplications,it isimportant"
+        },
+        {
+            "id": 767,
+            "text": "toe\u02ddcientlyperforminferenceonedgedeviceswithlimitedre-"
+        },
+        {
+            "id": 768,
+            "text": "sources.Inthisworkweproposedanewmethodwhichcombines"
+        },
+        {
+            "id": 769,
+            "text": "hierarchyawarenetworkswithvariationaldrop outtechniqueto"
+        },
+        {
+            "id": 770,
+            "text": "producesparsehierarchicalneuralnetworks.Thesesparsemodels"
+        },
+        {
+            "id": 771,
+            "text": "havever ylowoverheadandcanberunonresourceconstrained"
+        },
+        {
+            "id": 772,
+            "text": "edgedevices.Weevaluatedourapproachonareal-worldsmart"
+        },
+        {
+            "id": 773,
+            "text": "home deployment consisting of various sensors. We analyzedthe"
+        },
+        {
+            "id": 774,
+            "text": "various trade-o\u02dbs between energy consumption, network size and"
+        },
+        {
+            "id": 775,
+            "text": "levelofsparsityacrossthreedi\u02dberentlowresourcedevices.Our"
+        },
+        {
+            "id": 776,
+            "text": "measurementsonthreedi\u02dberentedgedevicesshowthatwecan"
+        },
+        {
+            "id": 777,
+            "text": "reduceenergyconsumptionbyupto35%withlittlelossinaccuracy."
+        },
+        {
+            "id": 778,
+            "text": "7 ACKNOWLEDGEMENTS"
+        },
+        {
+            "id": 779,
+            "text": "ThisworkwaspartiallyfundedbygrantsfromSamsung,SRC,NSF"
+        },
+        {
+            "id": 780,
+            "text": "and KACST."
+        },
+        {
+            "id": 781,
+            "text": "REFERENCES"
+        },
+        {
+            "id": 782,
+            "text": "[1] The MQT T messaging proto col. http://mqtt.org/"
+        },
+        {
+            "id": 783,
+            "text": "[2]"
+        },
+        {
+            "id": 784,
+            "text": "AnthonyThomas,Y.G.,YeseongKim,B.A.,ArunKumar,T.S.R.:Hierarchical"
+        },
+        {
+            "id": 785,
+            "text": "anddistributedmachinelearninginferencebeyondtheedge.IEEEInternational"
+        },
+        {
+            "id": 786,
+            "text": "ConferenceonNetworkingSystemsandControl(ICNSC)(2019)"
+        },
+        {
+            "id": 787,
+            "text": "[3]"
+        },
+        {
+            "id": 788,
+            "text": "Arduino:Arduinounospeci\u02d9cations.https://store.arduino.cc/usa/"
+        },
+        {
+            "id": 789,
+            "text": "arduino-uno-rev3"
+        },
+        {
+            "id": 790,
+            "text": "[4]"
+        },
+        {
+            "id": 791,
+            "text": "Foundation, R.: Raspberrypi 3 speci\u02d9cations. https://www.raspberrypi.org/"
+        },
+        {
+            "id": 792,
+            "text": "products/raspberry-pi-3-model-b/"
+        },
+        {
+            "id": 793,
+            "text": "[5]"
+        },
+        {
+            "id": 794,
+            "text": "Foundation,R.P.:Raspberrypi zerowspeci\u02d9cations.https://www.raspberrypi."
+        },
+        {
+            "id": 795,
+            "text": "org/products/raspberry-pi-zero-w/"
+        },
+        {
+            "id": 796,
+            "text": "[6]"
+        },
+        {
+            "id": 797,
+            "text": "Intel:Intelnucspeci\u02d9cations.https://www.intel.com/content/www/us/en/"
+        },
+        {
+            "id": 798,
+            "text": "support/articles/000005545/mini-pcs.html"
+        },
+        {
+            "id": 799,
+            "text": "[7]"
+        },
+        {
+            "id": 800,
+            "text": "Molchanov,D.,Ashukha,A.,Vetrov,D.:Variationaldropoutsparsi\u02d9esdeepneural"
+        },
+        {
+            "id": 801,
+            "text": "networks.In:Proceedingsofthe34thInternationalConferenceonMachine"
+        },
+        {
+            "id": 802,
+            "text": "Learning-Volume70.pp.2498\u00152507.JMLR.org(2017)"
+        },
+        {
+            "id": 803,
+            "text": "[8]"
+        },
+        {
+            "id": 804,
+            "text": "Ordonez,F.J.,Roggen,D.:Deepconvolutionalandlstmrecurrentneuralnet-"
+        },
+        {
+            "id": 805,
+            "text": "worksfor multimodal wearable activityrecognition. Sensors"
+        },
+        {
+            "id": 806,
+            "text": "16"
+        },
+        {
+            "id": 807,
+            "text": "(1) (2016)."
+        },
+        {
+            "id": 808,
+            "text": "https://doi.org/10.3390/s16010115,http://www.mdpi.com/1424-8220/16/1/115"
+        },
+        {
+            "id": 809,
+            "text": "[9]"
+        },
+        {
+            "id": 810,
+            "text": "Particle:Particlephotonspeci\u02d9cations.https://docs.particle.io/datasheets/wi-\u02d9/"
+        },
+        {
+            "id": 811,
+            "text": "photon-datasheet/"
+        },
+        {
+            "id": 812,
+            "text": "[10]"
+        },
+        {
+            "id": 813,
+            "text": "Roy,N., Misra,A., Cook, D.: Ambientand smartphonesensor assisted adlrecog-"
+        },
+        {
+            "id": 814,
+            "text": "nition in multi-inhabitantsmart environments. Journal of ambientintelligence"
+        },
+        {
+            "id": 815,
+            "text": "andhumanizedcomputing"
+        },
+        {
+            "id": 816,
+            "text": "7"
+        },
+        {
+            "id": 817,
+            "text": "(1),1\u001519(2016)"
+        },
+        {
+            "id": 818,
+            "text": "[11]Samsung:Samsungsmartthingsecosystem.https://www.smartthings.com/"
+        },
+        {
+            "id": 819,
+            "text": "[12]"
+        },
+        {
+            "id": 820,
+            "text": "Tapia,E.M.,Intille,S.S.,Larson,K.:Activityrecognitioninthehomeusingsimple"
+        },
+        {
+            "id": 821,
+            "text": "and ubiquitoussensors. In: Ferscha, A.,Mattern, F. (eds.) PervasiveComputing."
+        },
+        {
+            "id": 822,
+            "text": "pp.158\u0015175.SpringerBerlinHeidelberg,Berlin,Heidelberg(2004)"
+        },
+        {
+            "id": 823,
+            "text": "[13]"
+        },
+        {
+            "id": 824,
+            "text": "Teerapittayanon,S.,McDanel,B.,Kung,H.:Distributeddeepneuralnetworksover"
+        },
+        {
+            "id": 825,
+            "text": "thecloud,theedgeandenddevices.In:2017IEEE37thInternationalConference"
+        },
+        {
+            "id": 826,
+            "text": "onDistributedComputingSystems(ICDCS).pp.328\u0015339.IEEE(2017)"
+        },
+        {
+            "id": 827,
+            "text": "[14]"
+        },
+        {
+            "id": 828,
+            "text": "Wang,J.,Chen,Y.,Hao,S.,Peng,X.,Hu,L.:Deeplearningforsensor-based"
+        },
+        {
+            "id": 829,
+            "text": "activityrecognition:Asurvey.PatternRecognitionLetters(2019),deepLearning"
+        },
+        {
+            "id": 830,
+            "text": "forPatternRecognition"
+        },
+        {
+            "id": 831,
+            "text": "24"
+        }
+    ]
+}

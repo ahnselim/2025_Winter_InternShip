@@ -1,0 +1,56 @@
+{
+    "train": [
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the key findings regarding energy consumption?",
+            "answer": "The proposed approach reduces energy consumption by up to 35% without significant loss in accuracy."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the main goal of the paper?",
+            "answer": "The main goal is to develop an efficient sparse processing method for smart home applications by combining hierarchy-aware neural networks with variational dropout."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What hardware platforms were used for testing?",
+            "answer": "Raspberry Pi Zero, Particle Photon, and Arduino UNO."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "How does the proposed approach address these drawbacks?",
+            "answer": "By distributing inference computations across a hierarchy of edge devices and using sparse models to reduce computational overhead."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the potential drawbacks of the proposed approach?",
+            "answer": "Sensor malfunctions or missing data could negatively impact the final predictions."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the primary use case evaluated in the paper?",
+            "answer": "Human Activity Recognition (HAR) in a real-world smart home deployment."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What is the key method used to induce sparsity in neural networks?",
+            "answer": "Variational dropout is used to reduce the number of non-zero parameters, making the model more efficient."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the three key metrics used for evaluation?",
+            "answer": "Inference accuracy, energy usage, and model sparsity."
+        }
+    ],
+    "validation": [
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "How does the hierarchical approach improve efficiency?",
+            "answer": "It reduces communication overhead by performing partial inference locally before sending data to higher-tier devices."
+        },
+        {
+            "context": "\nThis paper presents an approach for efficient sparse processing in smart home applications.\nBy leveraging Hierarchy aware Neural Networks (HNN) with variational dropout, the method reduces energy consumption while maintaining inference accuracy.\nThe study is evaluated on a real-world smart home deployment for Human Activity Recognition (HAR).\n",
+            "question": "What are the major drawbacks of the traditional monolithic approach in smart home applications?",
+            "answer": "High energy consumption, increased network latency, and privacy concerns due to raw data transmission to the cloud."
+        }
+    ]
+}
